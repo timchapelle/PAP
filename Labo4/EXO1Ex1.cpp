@@ -8,10 +8,12 @@ int a,b,c;
 double delta;
 
 cout << "Entrez 3 entiers :" << endl; cin >> a >> b >> c ;
-delta=(pow(b,2))-4*a*c;
+
 
 if (a != 0)
 {
+	delta=(pow(b,2))-4*a*c;
+	
 	if (delta > 0)
 	{
 		cout << "Résultat 1 = " << (-b+sqrt(delta))/(2*a) << endl;
@@ -23,7 +25,7 @@ if (a != 0)
 		cout << "Résultat = " << -b/(2*a) << endl;
 	}
 	
-	else cout << "Cette équation n'est pas du second degré" ;
+	else cout << "Pas de solution" ;
 }
 
 else cout << "Cette équation n'est pas du second degré";
