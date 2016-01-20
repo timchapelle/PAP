@@ -27,40 +27,46 @@ int main() {
 
 char carteFidelite;
 string client=" ",produit=" ";
-double prix,prixTotal,remise,total;;
+double prix,prixTotal,remise,totalRemise,montantTotal=0.0;
 int qt;
+
+cout << "Nom du client : "; cin >> client;
 
 while (client != "*")
 {	
-	cout << "Nom du client :"; cin >> client;
 	cout << "Produit : "; cin >> produit;
 	
 	while (produit != "*")
-	{	remise=0;
+	{	
 		cout << "Prix : "; cin >> prix;
 		cout << "Quantité : "; cin >> qt;
 		
 		prixTotal=prix*qt; // Calcul du prix total
 		
 		cout << "Prix total de l'article " << produit << " : " << prixTotal << " €" << endl;
-				
-		do 
-		{
-			cout << "Carte de fidélité ? O/N" << endl; cin >> carteFidelite;
-		} while (carteFidelite != 'o' && carteFidelite != 'n');
-	
-		if (carteFidelite == 'o' || carteFidelite == 'O')
-		{
-			remise=prixTotal*0.1;
-			cout << "Remise : " << remise << " €" << endl;
-		}
-		else cout << "Pas de remise" << endl;
-	
-		total=prixTotal-remise;
-	
-		cout << "Montant à payer de " << client << " : " << total << " €" << endl;
+		
+		montantTotal=montantTotal+prixTotal;
+		
 		cout << "Produit : "; cin >> produit;
 	} // fin de la boucle while produit != *
+		
+	cout << "Carte de fidélité ? O/N" << endl; cin >> carteFidelite;
+		 
+	if (carteFidelite == 'o' || carteFidelite == 'O')
+	{
+		remise=montantTotal*0.1;
+		cout << "Remise : " << remise << " €" << endl;
+	}
+	else cout << "Pas de remise" << endl;
+		
+	totalRemise=montantTotal-remise;
+			
+	cout << "Montant à payer de " << client << " : " << totalRemise << " €" << endl;
+	
+	montantTotal=0; remise=0;
+	
+	cout << "Nom du client : " ; cin >> client;
+
 } // fin de la boucle while client != *
 return 0; // si client = *, on quitte le programme
 } // fin du main
