@@ -9,33 +9,36 @@ using namespace std;
 
 int pgcd (int a, int b) {       // Fonction pgcd
 
-int resultat;
-bool ok=false;
-
-while ( ok != true ) 
-{
-	if (a > b) 
-	   { a = a-b; }
-	 else if (a < b) 
-	   { b = b-a; }
-	 else 
-	 {
-		resultat = a;
-		ok = true;
-	 }
-}
-return resultat;
+	int resultat;
+	bool ok=false;
+	while ( ok != true ) 
+	{
+		if (a > b) 
+		{
+			a = a-b; 
+		} 
+		else if (a < b) {
+			b = b-a; 
+		} 
+		else {
+			resultat = a;
+			ok = true;
+		}
+	}
+	return resultat;
 }
 
 int main() {
 
-int x, y, resultat;
+	int x, y, resultat;
 
-while (x <= 1 || y <= 1 )
-{ cout << "Entrez 2 entiers supérieurs à 1" << endl;
-	cin >> x >> y ; }
+	while (x <= 1 || y <= 1 )
+	{
+		cout << "Entrez 2 entiers supérieurs à 1" << endl;
+		cin >> x >> y ; 
+	}
 	
-resultat=pgcd(x,y);
+	resultat=pgcd(x,y);
 
-cout << "PGCD : " << resultat;
+	cout << "PGCD : " << resultat;
 }
