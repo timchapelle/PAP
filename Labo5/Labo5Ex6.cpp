@@ -9,33 +9,36 @@ Méthode d’Euclide :
 using namespace std;
 
 int main() {
+	int dividende, diviseur, tmp, reste=1;
 
-int dividende, diviseur, tmp, reste=1;
-
-while ( dividende <= 1 || diviseur <= 1 || dividende == diviseur )
-{
-	cout << "Entrez 2 entiers > 1, différents l'un de l'autre : " << endl; cin >> dividende >> diviseur;
-}	
-	
-if ( diviseur > dividende )
-{tmp=dividende;dividende=diviseur;diviseur=tmp;} // permutation du dividende et du diviseur pour toujours avoir dividende > diviseur
-	
-if ( dividende % diviseur == 0 )
-
-	cout << diviseur << " est le PGCD de " << dividende << " et " << diviseur << endl;
-	
-else 
-{
-	while ( reste != 0 )
+	while ( dividende <= 1 || diviseur <= 1 || dividende == diviseur )
 	{
-		reste=dividende % diviseur;
+		cout << "Entrez 2 entiers > 1, différents l'un de l'autre : " << endl;
+		cin >> dividende >> diviseur;
+	}	
+	
+	if ( diviseur > dividende )
+	{
+		tmp=dividende;
 		dividende=diviseur;
-		diviseur=reste;
+		diviseur=tmp;
+	} // permutation du dividende et du diviseur pour toujours avoir dividende > diviseur
+	
+	if ( dividende % diviseur == 0 )
+	{
+		cout << diviseur << " est le PGCD de " << dividende << " et " << diviseur << endl;
+	}
+	else 
+	{
+		while ( reste != 0 )
+		{
+			reste=dividende % diviseur;
+			dividende=diviseur;
+			diviseur=reste;
+		}
 	}
 	
 	cout << "PGCD : " << dividende << endl;
-} 
 
-return 0;
-
+	return 0;
 }// fin du main

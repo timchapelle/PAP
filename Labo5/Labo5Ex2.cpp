@@ -1,15 +1,10 @@
 // Exo 2 : calculer le minimum et le maximum de 30 entiers entrés au clavier
-
 #include <iostream>
 using namespace std;
 
 int main() {
 
-	int cpt, nbmin, nbmax, nb;
-
-	cpt=0;
-	nbmin=0;
-	nbmax=0;
+	int nbmin, nbmax, nb;
 
 	cout << "Entrez un entier : " << endl;
 	cin >> nb;
@@ -17,17 +12,16 @@ int main() {
 	nbmin=nb;
 	nbmax=nb;
 
-	while (cpt < 29)
+	for (int i=0; i<=28;i++)
 	{
 		cout << "Entrez un entier : " << endl;
 		cin >> nb;
-		cpt++;
-	
+			
 		if (nbmin > nb)
 		{
 			nbmin=nb;
 		}
-		if (nbmax < nb)
+		else if (nbmax < nb)
 		{
 			nbmax=nb;
 		}
