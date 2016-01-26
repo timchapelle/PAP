@@ -16,8 +16,12 @@ int main() {
 		somme=somme+nb;
 		cout << "Entrez un entier : " ; cin >> nb;
 	}
-	somme=somme-nb;
-	moyenne=somme/total;
-	cout << "Moyenne = " << moyenne;
-return 0;
+		
+	if (total != 0)
+	{
+		moyenne=somme/total;
+		cout << "Moyenne = " << moyenne;
+	}
+	
+	return 0;
 }
