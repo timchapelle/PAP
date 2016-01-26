@@ -9,30 +9,37 @@ using namespace std;
 
 int main() {
 
-int nb1, nb2, somme=0;
+	int nb1, nb2, somme=0;
 
-cout << "Entrez 2 entiers : " << endl;
-cin >> nb1 >> nb2;
+	cout << "Entrez 2 entiers : " << endl;
+	cin >> nb1 >> nb2;
 
-if ( nb1 < nb2 )
-{
-	for (int i = nb1; i <= nb2; i++)
+	if ( nb1 < nb2 )
 	{
-		if ((i%2)==0)
-		{ somme=somme+i;}
-		else cout << "impair";
-	} // fin de for
-} // fin de if nb1 < nb2
+		for (int i = nb1; i <= nb2; i++)
+		{
+			if ((i%2)==0)
+			{ 
+				somme=somme+i;
+			}
+			else 
+			{
+				cout << "impair";
+			}
+		} // fin de for
+	} // fin de if nb1 < nb2
 
-else if ( nb1 > nb2 ) 
-{
-	for (int i = nb2; i <= nb1; i++)
+	else if ( nb1 > nb2 ) 
 	{
-		if ((i%2)==0) 
-		{somme=somme+i;}
-	} // fin de for
-} // fin de if nb1 > nb2
+		for (int i = nb2; i <= nb1; i++)
+		{
+			if ((i%2)==0) 
+			{
+				somme=somme+i;
+			}
+		} // fin de for
+	} // fin de if nb1 > nb2
 
-cout << "Somme : " << somme ;
-
+	cout << "Somme : " << somme ;
+	return 0;
 }
