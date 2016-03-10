@@ -1,0 +1,135 @@
+Labo 2 - Exercice 1 :
+---------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int annee;
+    cout << "Entrez une annee :" << endl;
+    cin >> annee;
+
+    if ((annee%100) == 0)
+    cout << annee << " est un siecle" << endl;
+    else
+    cout << annee << " n'est pas un siecle" << endl;
+
+    return 0;
+}
+
+Labo 2 - Exercice 2 :
+---------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double nb1, nb2;
+    int choix;
+
+    cout << "Entrez 2 reels : " << endl;
+
+    cin >> nb1 >> nb2;
+
+    cout << "Votre choix ?" << endl;
+    cout << "1. Soustraire " << nb1 << " de " << nb2 << endl;
+    cout << "2. Soustraire " << nb2 << " de " << nb1 << endl;
+
+    cin >> choix;
+
+    switch(choix)
+    case 1 :
+        {
+            // Version 1 :
+        cout << "La soustraction demandee = " << nb2 - nb1;
+            // Version 2 :
+        cout << nb2 << " - " << nb1 << " = " << nb2 - nb1;
+        break;
+
+    case 2 :
+            // Version 1 :
+        cout << "La soustraction demandee = " << nb1 - nb2;
+            // Version 2 :
+        cout << nb1 << " - " << nb2 << " = " << nb1 - nb 2;
+        break;
+        }
+
+        return 0;
+}
+
+Labo 2 - Exercice 3 : 
+---------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int nb;
+
+    cout << "Entrez un entier : " << endl;
+
+    cin >> nb;
+
+    if (nb < 0)
+        cout << "Valeur absolue : " << -nb;
+    else
+        cout << "Valeur absolue : " << nb;
+
+    return 0;
+}
+
+Labo 2 - Exercice 4 : 
+---------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    char lettre;
+    cout << "Entrez un et un seul caractere : " << endl;
+    cin >> lettre;
+
+    if (lettre >= 'a' && lettre <= 'z')
+        cout << lettre << " est une minuscule";
+    else if (lettre >= 'A' && lettre <= 'Z')
+        cout << lettre << " est une majuscule";
+    else if (lettre >= '0' && lettre <= '9')
+        cout << lettre << " est un chiffre";
+
+    return 0;
+}
+
+Labo 2 - Exercice 5 : 
+---------------------
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int surf_ha, surf_a, surf_ca, nb; // Définition des variables utilisées pour le calcul
+
+    cout << "Entrez une surface (m\xFD) \x85 convertir : " << endl << endl;
+    cin >> nb;
+    cout << endl;
+
+    surf_ha =    nb / 10000;
+    surf_a  =  ((nb%10000)/100);
+    surf_ca =  ((nb%10000)%100);
+
+    if (nb > 0)
+        cout << nb << " m\x8Atres carr\x82s = " << surf_ha << " hectare(s) " << surf_a << " are(s) " << surf_ca << " centiare(s) " << endl << endl;
+
+    else
+        cout << "Veuillez rentrer un nombre positif !";
+    return 0;
+}
+

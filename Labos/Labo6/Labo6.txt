@@ -1,0 +1,125 @@
+Exo 1
+
+#include <iostream>
+using namespace std;
+/*  Remplir les éléments d’un vecteur de 10 entiers avec les entiers 1, 2, … , 10 p */
+int main() {
+	int tab[10];
+	
+	for (int i = 1; i <= 10; i++)
+	{
+		tab[i] = i;
+	
+		cout << "tab[" << i << "] = " << tab[i] << endl;
+	}
+	return 0;
+}
+
+Exo 1B
+
+#include <iostream>
+using namespace std;
+//Même chose mais remplir avec les entiers 10, 9, … , 1.
+int main() {
+	
+	int tab[10];
+	
+	for (int i = 0; i <= 9 ; i++)
+	{
+		tab[i] = 10-i;
+		
+		cout << "tab [" << i << "] = " << tab[i] << endl;
+	}
+	return 0;
+}
+
+EXO 2
+
+#include <iostream>
+using namespace std;
+/* EXO2 Calculer le produit scalaire de 2 vecteurs de 5 entiers.
+Ex : vecteur1 = 2 3 -1 8 3
+vecteur2 = 9 7 4 5 0
+Produit scalaire = 75 (obtenu en faisant 2 * 9 + 3 * 7 + (-1) * 4 + 8 * 5 + 3 * 0) */
+
+int main() {
+	
+	int tab1[5], tab2[5], prodScal=0;
+	
+	cout << "Entrez les 5 entiers du 1er tableau : " << endl;
+	for (int i = 0; i <= 4; i++)
+	{
+		cin >> tab1[i];
+	}
+	cout << "Entrez les 5 entiers du 2ème tableau : " << endl;
+	for (int i = 0; i <= 4; i++)
+	{
+		cin >> tab2[i];
+	}
+	for (int i = 0; i <= 4; i++)
+	{
+		prodScal = prodScal + tab1[i] * tab2[i];
+	}
+	cout << "Produit scalaire : " << prodScal << endl;
+	return 0;
+}
+
+EXO 3
+-----
+#include <iostream>
+using namespace std;
+/* EXO3 
+
+Remplir une table de 12 entiers puis
+a) Afficher les éléments pairs du tableau
+b) Afficher les indices des éléments pairs du tableau */
+
+int main() {
+	
+	int tab[12];
+	cout << "Entrez 12 entiers : " << endl;
+	for (int i = 0; i < 12; ++i) 
+	{
+		cin >> tab[i];
+	}
+	for (int i = 0; i < 12; ++i) 
+	{
+		if ((tab[i]%2)==0)
+		{
+			cout << "nombre pair : "<< tab[i] << " - Indice : " << i << endl;
+		}
+	}
+	return 0;
+}
+
+EXO 4
+
+/* EXO4 Remplir une table de 15 entiers puis introduire un entier recherché.
+Afficher le nombre de fois que l’entier recherché est dans la table (c’est-à-dire l’occurrence de
+l’entier). */
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int tab[15], nb, occurrence=0;
+	cout << "Entrez 15 entiers : " << endl;
+	for (int i = 0; i < 15; i++)
+	{
+		cin >> tab[i];
+	}
+	cout << "Entrez un entier à rechercher : " << endl;
+	cin >> nb;
+	for (int i = 0; i < 15; i++)
+	{
+		if (tab[i] == nb)
+		{
+			occurrence++;
+		}
+	}
+	cout << "Occurrence : " << occurrence << endl;
+	return 0;
+}
+
+
+

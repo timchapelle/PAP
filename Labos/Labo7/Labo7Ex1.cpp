@@ -6,27 +6,25 @@ using namespace std;
 
 int main() {
 
-	double tab1[20], tab2[20], tab3[20], nb1, nb2;
-	int nb;
+	double tab1[20], tab2[20], tab3[20];
+	int nbElem;
 	
 	cout << "Nombre d'éléments : " << endl;
-	cin >> nb;
+	cin >> nbElem;
 	for (int i = 0; i < nb; i++)
 	{
 		cout << "Entrez un réel (tableau 1) : " << endl;
-		cin >> nb1;
-		tab1[i] = nb1;
+		cin >> tab1[i]
 	}
-	for (int j = 0; j < nb; j++)
+	for (int i = 0; i < nbElem; i++)
 	{
 		cout << "Entrez un réel (tableau 2) : " << endl;
-		cin >> nb2;
-		tab2[j] = nb2;
-		tab3[j] = tab1[j] + tab2[j];
+		cin >> tab2[i];
+		tab3[i] = tab1[i] + tab2[i];
 	}
-	for (int k = 0; k < nb; k++)
+	for (int i = 0; i < nbElem; i++)
 	{
-		cout << "tab3[" << k << "] = " << tab3[k] << endl;
+		cout << "tab3[" << i << "] = " << tab3[i] << endl;
 	}
 	return 0;	
 }

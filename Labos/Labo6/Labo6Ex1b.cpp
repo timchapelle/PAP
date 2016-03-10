@@ -8,7 +8,6 @@ int main() {
 	for (int i = 0; i <= 9 ; i++)
 	{
 		tab[i] = 10-i;
-		
 		cout << "tab [" << i << "] = " << tab[i] << endl;
 	}
 	return 0;

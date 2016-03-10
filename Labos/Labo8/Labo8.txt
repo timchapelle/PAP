@@ -1,0 +1,500 @@
+/* EXO1 1°
+1°) Refaire Fonction/Procédure qui calcule le maximum de 3 entiers et l’appeler 2 fois.
+Version 2 : Cette F/P doit appeler pour les calculs une autre F/P qui calcule le maximum de 2 entiers.
+2°) Les utiliser dans un programme qui utilise une table d’entiers à dimension variable (max 20) et qui
+affiche le maximum de tous les triples éléments consécutifs de la table. */
+
+#include <iostream>
+using namespace std;
+// Prototype
+int maximum(int a, int b, int c);
+// Main
+int main() {
+	int a,b,c, cpt(0);
+	while (cpt <= 1) {
+	cout << "Entrez 3 entiers : " << endl;
+	cin >> a >> b >> c;
+	cout << "Maximum : " << maximum(a,b,c) << endl;
+	cpt++;
+	}
+}
+// Fonction
+int maximum(int a, int b, int c) {	
+	int max;
+	
+	if (a > b)
+	{
+		max = a;
+	}
+	else
+	{
+		max = b;
+	}
+	if (c > max)
+	{
+		max = c;
+	}
+	return max;
+}
+=========================================================================================================
+/* EXO1 1° version 2
+1°) Refaire Fonction/Procédure qui calcule le maximum de 3 entiers et l’appeler 2 fois.
+Version 2 : Cette F/P doit appeler pour les calculs une autre F/P qui calcule le maximum de 2 entiers.
+2°) Les utiliser dans un programme qui utilise une table d’entiers à dimension variable (max 20) et qui
+affiche le maximum de tous les triples éléments consécutifs de la table. */
+
+#include <iostream>
+using namespace std;
+// Prototypes
+int maximum(int a, int b, int c);
+int maximum2(int a, int b);
+// Main 
+int main() {
+	int a,b,c,cpt(0);
+	while (cpt<=1) {
+	cout << "Entrez 3 entiers : " << endl;
+	cin >> a >> b >> c;
+	cout << "Maximum : " << maximum(a,b,c) << endl;
+	cpt++;
+	}
+}
+// Fonctions 
+int maximum(int a, int b, int c) {	
+	int max,tmp;
+	
+	tmp=maximum2(a,b);
+	
+	if (c > tmp)
+	{
+		max = c;
+	}
+	else
+	{
+		max = tmp;
+	}
+	return max;
+}
+int maximum2(int a, int b) {
+	int max;
+	if (a > b)
+	{
+		max = a;
+	}
+	else
+	{
+		max = b;
+	}
+	return max;
+}
+=======================================================================================================
+/* EXO1 - 2°
+1°) Refaire Fonction/Procédure qui calcule le maximum de 3 entiers et l’appeler 2 fois.
+Version 2 : Cette F/P doit appeler pour les calculs une autre F/P qui calcule le maximum de 2 entiers.
+2°) Les utiliser dans un programme qui utilise une table d’entiers à dimension variable (max 20) et qui
+affiche le maximum de tous les triples éléments consécutifs de la table. */
+
+#include <iostream>
+using namespace std;
+// Prototypes
+int maximum(int a, int b, int c);
+int maximum2(int a, int b);
+// Main 
+int main() {
+	int tab[20],dim;
+	cout << "Combien d'éléments (max. 20) ?" << endl;
+	cin >> dim;
+	cout << "C'est parti :" << endl;
+	for (int i = 0; i < dim; i++) {
+		cin	>> tab[i];
+	}
+	for (int i = 0; i < dim-1 ; i += 3)
+	{
+		cout << "Maximum : " << maximum(tab[i], tab[i+1], tab[i+2]) << endl;		
+	}
+	return 0;
+}
+// Fonctions 
+int maximum(int a, int b, int c) {	
+	int max,tmp;
+	tmp=maximum2(a,b);
+	if (c > tmp) { max = c; }
+	else { max = tmp; }
+	return max;
+}
+int maximum2(int a, int b) {
+	int max;
+	if (a > b) { max = a; }
+	else { max = b; }
+	return max;
+}
+===========================================================================
+/* EXO2 Calcul du PGCD de 2 entiers par une F/P.
+a) Méthode d’Euclide (voir labo 5).
+b) Méthode avec les formules (voir labo 5 exo 6). */
+
+#include <iostream>
+using namespace std;
+// Prototypes
+int pgcd (int a,int b);
+void permutation(int x,int y);
+// Main
+int main() {
+	int nb1, nb2;
+	while (nb1 <= 1 || nb2 <= 1 )
+	{
+		cout << "Entrez 2 entiers supérieurs à 1" << endl;
+		cin >> nb1 >> nb2 ; 
+	}
+	permutation(nb1,nb2);
+	cout << "PGCD : " << pgcd(nb1,nb2);
+}
+// Fonction - Procédure
+void permutation(int x, int y) {
+	int tmp;
+	if (y > x)
+	{
+		tmp=x;
+		x=y;
+		y=tmp;
+	}
+}
+int pgcd (int a, int b) { 
+	int reste(1),resultat;
+	if (a % b == 0) {
+		resultat=b;
+	}
+	else {
+		while (reste != 0)
+		{
+			reste=a%b;
+			a=b;
+			b=reste;
+		}
+		resultat=a;
+	}
+	return resultat;
+}
+/* EXO2 Calcul du PGCD de 2 entiers par une F/P.
+a) Méthode d’Euclide (voir labo 5).
+b) Méthode avec les formules (voir labo 5 exo 6). */
+#include <iostream>
+using namespace std;
+// Prototype
+int pgcd (int a,int b);
+// Main
+int main() {
+	int x, y;
+	while (x <= 1 || y <= 1 )
+	{
+		cout << "Entrez 2 entiers supérieurs à 1" << endl;
+		cin >> x >> y ; 
+	}
+	cout << "PGCD : " << pgcd(x,y);
+	return0;
+}
+// Fonction
+int pgcd (int a, int b) { 
+	int resultat;
+	bool ok=false;
+	while ( ok != true ) 
+	{
+		if (a > b) 
+		{
+			a = a-b; 
+		} 
+		else if (a < b) {
+			b = b-a; 
+		} 
+		else {
+			resultat = a;
+			ok = true;
+		}
+	}
+	return resultat;
+}
+==========================================================================================================
+/* EXO3 F/P pour simplifier 2 entiers par leur PGCD en appelant une des F/P de l’exercice précédent. */
+
+#include <iostream>
+using namespace std;
+// Prototypes
+int pgcd(int a,int b);
+void permutation(int x,int y);
+// Main
+int main() {
+	int nb1,nb2,tmp;
+	cout << "Entrez 2 entiers" << endl;
+	cin >> nb1 >> nb2;
+	tmp=nb1;
+	nb1 /= pgcd(nb1,nb2);
+	nb2 /= pgcd(tmp,nb2);
+	cout << "Nb1 simplifié : " << nb1 << endl << "Nb2 simplifié : " << nb2 ;
+	return 0;
+}
+// Fonction - Procédure
+int pgcd(int a,int b)
+{
+	int resultat;
+	bool ok=false;
+	while ( ok != true ) 
+	{
+		if (a > b) 
+		{
+			a = a-b; 
+		} 
+		else if (a < b) {
+			b = b-a; 
+		} 
+		else {
+			resultat = a;
+			ok = true;
+		}
+	}
+	return resultat;
+}
+=====================================================================================================
+/* EXO4 Reprendre les F/P précédentes et les utiliser dans un programme principal.
+a) F/P pour le calcul du PGCD de 2 entiers
+b) F/P pour simplifier 2 entiers par leur PGCD
+c) Programme principal qui permet d’entrer 2 fractions, les affiche simplifiées et affiche leur somme
+simplifiée.
+Rappel : a/b + c/d = (a.d + b.c ) / (b.d)
+Exemple d’exécution : 4/6 + 10/15 = 2/3 + 2/3 = 12/9 = 4/3 */
+
+#include <iostream>
+using namespace std;
+// Prototypes
+int pgcd(int a,int b);
+void simplif(int &x,int &y);
+// Main
+int main() 
+{
+	int nb1,nb2,nb3,nb4,tmp1,tmp2;
+	while (nb1 <= 0 || nb2 <= 0 || nb3 <= 0 || nb4 <= 0) 
+	{
+		cout << "Entrez 2 fractions (4 entiers)" << endl;
+		cin >> nb1 >> nb2 >> nb3 >> nb4;
+	}
+	cout << nb1 << " / " << nb2 << " + " << nb3 << " / " << nb4 << " = ";
+	simplif(nb1,nb2);
+	cout << nb1 << " / " << nb2 << " + " ;
+	simplif(nb3,nb4);
+	cout << nb3 << " / " << nb4 <<" = ";
+	tmp1=(nb1*nb4+nb2*nb3);
+	tmp2=nb2*nb4;
+	simplif(tmp1,tmp2);
+	cout << tmp1 << " / " << tmp2 << endl;
+	return 0;
+}
+// Fonction - Procédure
+int pgcd(int a,int b) 
+{
+	int resultat;
+	bool ok=false;
+	while ( ok != true ) 
+	{
+		if (a > b) 
+		{
+			a = a-b; 
+		} 
+		else if (a < b) {
+			b = b-a; 
+		} 
+		else {
+			resultat = a;
+			ok = true;
+		}
+	}
+	return resultat;
+}
+void simplif(int &x,int &y) 
+{
+	int tmp;
+	tmp=x;
+	x /= pgcd(x,y);
+	y /= pgcd(tmp,y);
+	
+}
+============================================================================
+/* EXO5 F/P qui calcule la factorielle d’un entier de façon itérative.
+Rappel : n != n . (n-1) . (n-2) ….. 1 si n >= 1
+= 1 si n = 0 */
+
+#include <iostream>
+using namespace std;
+// Prototype
+int factorielle(int n);
+// Main 
+int main()
+{
+	int nb(-1);
+	while (nb < 0)
+	{ 
+	cout << "Entrez un entier : " << endl;
+	cin >> nb;
+	}
+	cout << nb << " != " << factorielle(nb);
+	return 0;
+}
+// Fonction
+int factorielle(int n) 
+{	
+	int fact(n);
+	if (n>=1)
+	{
+		for (int i = 1; i < n; i++)
+		{
+			fact *= n-i;
+		}
+	}
+	else
+	{
+		fact = 1;
+	}	
+	return fact;
+}
+=================================================================================================
+/* EXO6 F/P qui calcule Cj i (nombre de combinaisons de i objets parmi j), Cj i = j!/(i! .(j-i)!) 
+ * en appelant la F/P de l’exercice précédent. */
+#include <iostream>
+using namespace std;
+// Prototypes
+int combinaisons(int a, int b);
+int factorielle(int n);
+// Main
+int main() {
+	int nb1(-1),nb2(-1);
+	while (nb1 < 0 || nb2 < 0)
+	{
+		cout << "Entrez deux entiers positifs :" << endl;
+		cin >> nb1 >> nb2;
+	}
+	cout << "Nombre de combinaisons : " << combinaisons(nb1,nb2) << endl;
+	return 0;
+}
+// Fonctions
+int factorielle(int n) 
+{	
+	int fact(n);
+	if (n>=1)
+	{
+		for (int i = 1; i < n; i++)
+		{
+			fact *= n-i;
+		}
+	}
+	else
+	{
+		fact = 1;
+	}	
+	return fact;
+}
+int combinaisons(int a, int b) 
+{	
+	int tmp, nbComb;
+	if (b<a)
+		{
+			tmp=a ; a=b ; b=tmp ;
+		}
+		nbComb = factorielle(b)/(factorielle(a)*factorielle(b-a));
+		return nbComb;
+}
+=========================================================================================================
+/* EXO7 Utiliser les 2 F/P précédentes pour afficher les coefficients du binôme de Newton de degré n.
+Rappel : Les coefficients du binôme de Newton de degré n sont : Cn 0 Cn 1 … Cn n
+(Ce sont les coefficients du produit remarquable de (a+b)n)
+Exemple d’exécution : Les coefficients du binôme de Newton de degré 3 sont 1 3 3 1 */
+
+#include <iostream>
+using namespace std;
+// Prototypes
+int factorielle(int a);
+int combinaisons(int a, int b);
+void binome(int a);
+// Main
+int main() 
+{
+	int degre(-1);
+	while (degre<0)
+	{
+		cout << "Entrez le degré du binôme (entier positif) : " << endl;
+		cin  >> degre;
+	}
+	cout << "Coefficients de degré " 
+		 << degre 
+		 << " : " ;
+	binome(degre);
+	return 0;
+}
+// Fonctions - Procédures
+int factorielle(int a) 
+{	
+	int fact(a);
+	if (a>=1)
+	{
+		for (int i = 1; i < a; i++)
+		{
+			fact *= a-i;
+		}
+	}
+	else
+	{
+		fact = 1;
+	}	
+	return fact;
+}
+int combinaisons(int a, int b) 
+{	
+	int tmp, nbComb;
+	if (b<a)
+	{
+		tmp=a ; a=b ; b=tmp ;
+	}
+	nbComb = factorielle(b)/(factorielle(a)*factorielle(b-a));
+	return nbComb;
+}
+void binome (int a)
+{
+	for (int i = 0; i < a+1; i++)
+	{
+		cout << combinaisons(i,a) << " ";
+	}
+}
+===================================================================================================
+/*EXO8 F/P qui calcule de façon itérative le nombre de Fibonacci de n.
+Les nombres de Fibonacci se calculent de la façon suivante :
+F0 = 0
+F1 = 1
+Fn = Fn-1 + Fn-2
+Les nombres de Fibonacci sont donc la suite : 0 1 1 2 3 5 8 13 21 … qui tend vers le nombre d’or.
+Exemple d’exécution : Fibonacci de 6 est 8 */
+
+#include <iostream>
+using namespace std;
+// Prototype 
+int tabonacci(int a);
+// Main 
+int main() 
+{
+	int nb(-1);
+	while (nb < 0)
+	{
+		cout << "Entrez un entier positif : " << endl;
+		cin >> nb;
+	}
+	cout << tabonacci(nb) << endl;
+	return 0;
+}
+// Fonction 
+int tabonacci(int a)
+{
+	int tab[a];
+	tab[0]=1;
+	tab[1]=1;
+	for (int i = 2; i <= a ; i++)
+	{
+		tab[i] = tab[i-1]+tab[i-2];
+	}
+	return tab[a-1];
+}
+

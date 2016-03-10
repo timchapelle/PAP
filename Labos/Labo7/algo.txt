@@ -1,0 +1,47 @@
+Remplir une table d’entiers à dimension variable (max 20) puis introduire un entier recherché.
+a) Afficher où se trouve l’entier la 1ère fois dans la table / s’il n’est pas dedans.
+b) Afficher où se trouve l’entier la dernière fois dans la table / s’il n’est pas dedans
+
+
+module rienAFoutreDuNom () 
+	tailleTab, nb, nbFind, premier, dernier : entiers
+	ok1, ok2 : boolean
+
+	Afficher “Combien de nombres ?”
+	lire tailleTab
+
+	tab : tableau de tailleTab d’entiers
+	
+	Pour i de 0 à (tailleTab-1) faire
+		Afficher “nombre ?”
+		lire nb
+		tab [i] <- nb
+	fin pour
+
+	Afficher “Quel entier à trouver ?”
+	lire nbFind
+
+	ok1 <- faux
+	premier <- 0
+	Tant que NON ok1 OU premier<tailleTab faire
+		Si tab[premier]=nbFind alors
+			ok1 <- vrai
+			Afficher “La première position du nombre est “, premier
+		fin si
+		premier ++
+	fin tant que
+
+	Si NON ok1 alors
+		Afficher “Le nombre”, nbFind, “ ne se trouve pas dans le tableau”
+	Sinon
+			ok2 <- faux
+		dernier <- tailleTab
+		Tant que NON ok2 OU dernier>0 faire
+			dernier <- dernier - 1
+			Si tab[dernier]=nbFind alors
+				ok2 <- vrai
+				Afficher “La dernière position du nombre est “, dernier
+			fin si
+		fin tant que
+	Fin si
+fin module

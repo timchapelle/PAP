@@ -1,0 +1,352 @@
+/*EXO1 Faire la table de multiplication d’un entier lu au clavier entre 1 et 20 obligatoirement.
+Faire les calculs de 1 à 10 fois. Puis, demandez à l’utilisateur s’il veut recommencer une autre table.
+Ex : Table de quel entier entre 1 et 20 : 34
+Cette valeur n’est pas entre 1 et 20, recommencez : -2
+Cette valeur n’est pas entre 1 et 20, recommencez : 3
+Table de 3
+1 X 3 = 3
+. . .
+10 X 3 = 30
+Voulez-vous faire une autre table ( - O(ui) - N(on) - ) t
+Répondez O(ui) ou N(on) J
+Répondez O(ui) ou N(on) O */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+char choix='o';
+int nb;
+
+while (choix == 'o' || choix == 'O')
+	{ 
+	do {
+	cout << "Entrez un entier entre 1 et 20 : " << endl;
+	cin >> nb;
+	   } while (nb <= 1 || nb >= 20) ;
+	  
+	  for (int i = 1; i <= 10; i++)
+	  {
+		  cout << i << "*" << nb << " = " << i * nb << endl;
+	  }
+	
+	do
+	{
+	cout << "Voulez-vous afficher une autre table (O)ui/(N)on ?" << endl;
+	cin >> choix;
+	} while (choix != 'o' && choix != 'O' && choix != 'n' && choix != 'N') ;
+}
+return 0;
+}
+
+=============================================================================
+// Exo 2 : calculer le minimum et le maximum de 30 entiers entrés au clavier
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int cpt, nbmin, nbmax, nb;
+
+cpt=0;
+nbmin=0;
+nbmax=0;
+
+cout << "Entrez un entier : " << endl;
+cin >> nb;
+	
+nbmin=nb;
+nbmax=nb;
+
+while (cpt < 29)
+{
+	cout << "Entrez un entier : " << endl;
+	cin >> nb;
+	cpt++;
+	
+	if (nbmin < nb)
+	{
+		nbmin=nb;
+	}
+	else if (nbmax > nb)
+	{
+		nbmax=nb;
+	}
+}
+	cout << "Nombre minimum = " << nbmin << endl;
+	cout << "Nombre maximum = " << nbmax << endl;
+	
+	return 0;
+}
+
+=============================================================================
+
+/*EXO3 Dans un magasin, on fait une facture par client pour différents clients. L’encodage des clients
+se terminent lorsqu’on introduit * pour son nom.
+Pour chaque facture, on introduit des produits (par produit : description, prix unitaire, quantité
+ achetée). L’encodage des produits se terminent lorsqu’on entre * pour sa description.
+On demande alors si le client a une carte de membre. Si oui, il aura 10% de remise.
+Ex : Nom du client : DUPONT
+Produit : coca
+Prix : 1.15
+Quantité : 4
+Prix total de l’article coca = 4.6 €
+Produit : choco
+Prix : 2.2
+Quantité : 3
+Prix total de l’article choco = 6.6 €
+Produit : *
+Prix total : 11.2 €
+A-t’ il une carte de fidélité ( - O(ui) – N(on) - ) Z
+O(ui) – N(on) SVP ! o
+Remise = 1.12 €
+Montant à payer de DUPONT = 10.08 €
+Nom du client :  									*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+char carteFidelite;
+string client=" ",produit=" ";
+double prix,prixTotal,remise,totalRemise,montantTotal=0.0;
+int qt;
+
+cout << "Nom du client : "; cin >> client;
+
+while (client != "*")
+{	
+	cout << "Produit : "; cin >> produit;
+	
+	while (produit != "*")
+	{	
+		cout << "Prix : "; cin >> prix;
+		cout << "Quantité : "; cin >> qt;
+		
+		prixTotal=prix*qt; // Calcul du prix total
+		
+		cout << "Prix total de l'article " << produit << " : " << prixTotal << " €" << endl;
+		
+		montantTotal=montantTotal+prixTotal;
+		
+		cout << "Produit : "; cin >> produit;
+	} // fin de la boucle while produit != *
+		
+	cout << "Carte de fidélité ? O/N" << endl; cin >> carteFidelite;
+		 
+	if (carteFidelite == 'o' || carteFidelite == 'O')
+	{
+		remise=montantTotal*0.1;
+		cout << "Remise : " << remise << " €" << endl;
+	}
+	else cout << "Pas de remise" << endl;
+		
+	totalRemise=montantTotal-remise;
+			
+	cout << "Montant à payer de " << client << " : " << totalRemise << " €" << endl;
+	
+	montantTotal=0; remise=0;
+	
+	cout << "Nom du client : " ; cin >> client;
+
+} // fin de la boucle while client != *
+return 0; // si client = *, on quitte le programme
+} // fin du main
+
+=============================================================================
+/* Labo 5 - Exo4 : Entrer des entiers strictements positifs 
+ * et afficher leur maximum */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int nb=1, nbmax=0;
+
+cout << "Entrez un entier strictement positif (0 ou négatif pour sortir) "<< endl;
+
+while (nb > 0)
+{
+	cin >> nb;
+	if (nb > nbmax)
+	{
+		nbmax=nb;
+	}
+cout << "Nombre maximum : " << nbmax << endl;
+}
+
+cout << "Bye bye";
+return 0;
+
+}
+=============================================================================
+/* Labo 5 - Exo 5 : Entrer 2 entiers et calculer 
+la somme de tous les entiers pairs entre ces 2 entiers 
+(ceux-ci éventuellement compris).
+Ex : Pour 10 et 14, il affichera 36
+	 Pour 10 et 5, il affichera 24 */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int nb1, nb2, somme=0;
+
+cout << "Entrez 2 entiers : " << endl;
+cin >> nb1 >> nb2;
+
+if ( nb1 < nb2 )
+{
+	for (int i = nb1; i <= nb2; i++)
+	{
+		if ((i%2)==0)
+		{ somme=somme+i;}
+		else cout << "impair";
+	} // fin de for
+} // fin de if nb1 < nb2
+
+else if ( nb1 > nb2 ) 
+{
+	for (int i = nb2; i <= nb1; i++)
+	{
+		if ((i%2)==0) 
+		{somme=somme+i;}
+	} // fin de for
+} // fin de if nb1 > nb2
+
+cout << "Somme : " << somme ;
+
+}
+=============================================================================
+/* LABO 5 - EXO6 Calculer le PGCD de 2 entiers selon la méthode d’Euclide.
+Le calcul du PGCD n’est possible que pour des entiers > 1.
+Méthode d’Euclide :
+- Diviser le plus grand par le plus petit.
+- Si le reste n’est pas 0, diviser le diviseur par le reste. (Et toujours, ainsi)
+- Si le reste = 0, le PGCD est le diviseur. */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int dividende, diviseur, tmp, reste=1;
+
+while ( dividende <= 1 || diviseur <= 1 || dividende == diviseur )
+{
+	cout << "Entrez 2 entiers > 1, différents l'un de l'autre : " << endl; cin >> dividende >> diviseur;
+}	
+	
+if ( diviseur > dividende )
+{tmp=dividende;dividende=diviseur;diviseur=tmp;} // permutation du dividende et du diviseur pour toujours avoir dividende > diviseur
+	
+if ( dividende % diviseur == 0 )
+
+	cout << diviseur << " est le PGCD de " << dividende << " et " << diviseur << endl;
+	
+else 
+{
+	while ( reste != 0 )
+	{
+		reste=dividende % diviseur;
+		dividende=diviseur;
+		diviseur=reste;
+	}
+	
+	cout << "PGCD : " << dividende << endl;
+} 
+
+return 0;
+
+}// fin du main
+=============================================================================
+/* EXO7 Calculer le PGCD de 2 entiers en utilisant les formules ci-dessous.
+(rappel : Le calcul du PGCD n’est possible que pour des entiers > 1.)
+- pgcd(a , b) = pgcd(a-b , b) si a > b
+- pgcd(a , b) = pgcd(a , b-a) si a < b
+- pgcd(a , b) = a = b         si a = b         */
+
+#include <iostream>
+using namespace std;
+
+int pgcd (int a, int b) {       
+
+int resultat;
+bool ok=false;
+
+while ( ok != true ) 
+{
+	if (a > b) 
+	   { a = a-b; }
+	 else if (a < b) 
+	   { b = b-a; }
+	 else 
+	 {
+		resultat = a;
+		ok = true;
+	 }
+}
+return resultat;
+}
+
+int main() {
+
+int x, y, resultat;
+
+while (x <= 1 || y <= 1 ) {
+	cout << "Entrez 2 entiers supérieurs à 1" << endl;
+	cin >> x >> y ; 
+}
+	
+resultat=pgcd(x,y);
+
+cout << "PGCD : " << resultat;
+return 0;
+}
+
+=============================================================================
+
+/* Labo 5 - Exo 8 : 
+ * Calculer le minimum de 10 entiers pairs lus au clavier */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int nb,nbMin,cpt=0;
+		
+	while (cpt < 10) {
+		
+		cout << "Entrez un entier pair : " << endl ; cin >> nb;
+		
+		if ( nb%2 == 0 )
+		{
+			if ( cpt == 0 )
+			{
+				nbMin=nb;
+			}
+						
+			else if ( nb < nbMin )
+			{
+				nbMin=nb;
+			}
+			cpt++;
+		}
+		else
+		{
+			cout << "L'entier doit être pair ! Recommence ! " << endl;
+		}
+				
+} // fin de while cpt <= 10
+	
+	cout << "Minimum : " << nbMin;
+	return 0;
+	
+} // fin du main()
+
