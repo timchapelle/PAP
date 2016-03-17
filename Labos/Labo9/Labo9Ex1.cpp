@@ -7,7 +7,7 @@ using namespace std;
 // Prototypes
 void remplir(int t[],int a);
 double moyenne(const int t[], int a);
-// Main
+// Bloc
 int main() 
 {	
 	int table[20], dim(0);

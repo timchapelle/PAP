@@ -7,11 +7,11 @@ c) F/P pour afficher une table (appelée 2 fois pour afficher la table avant et 
 2ème version : b) On ne passe plus l'indice d'un élément mais l'élément qui si il existe est supprimé. */
 #include <iostream>
 using namespace std;
-
+// Prototypes
 void remplir(int t[], int &a);
 void afficher(int t[], int a);
 void enlever(int t[], int a, int b);
-
+// Bloc
 int main() 
 {
 	int tab[25], dimens(0),indice;

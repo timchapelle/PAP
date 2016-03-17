@@ -10,6 +10,7 @@ using namespace std;
 void remplir(int t[], int a);
 void multip(int a[],int b[], int c);
 void afficher(int a[], int c);
+// Bloc
 int main() {
 	int tab1[10],tab2[5], dim(0);
 	while (dim > 5 || dim <= 0)
@@ -56,6 +57,7 @@ void multip(int a[], int b[], int c)
 		}
 	}
 }
+// Procédure pour afficher un tableau
 void afficher(int a[], int c)
 {
 	cout << "Table de " << c << " éléments "<< endl << "--------------------" << endl;
